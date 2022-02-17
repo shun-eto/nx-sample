@@ -1,0 +1,73 @@
+{
+  "root": "apps/nx-sample",
+  "sourceRoot": "apps/nx-sample/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/nx-sample",
+        "index": "apps/nx-sample/src/index.html",
+        "baseHref": "/",
+        "main": "apps/nx-sample/src/main.tsx",
+        "polyfills": "apps/nx-sample/src/polyfills.ts",
+        "tsConfig": "apps/nx-sample/tsconfig.app.json",
+        "assets": [
+          "apps/nx-sample/src/favicon.ico",
+          "apps/nx-sample/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/nx-sample/src/environments/environment.ts",
+              "with": "apps/nx-sample/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "nx-sample:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "nx-sample:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nx-sample/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/nx-sample"],
+      "options": {
+        "jestConfig": "apps/nx-sample/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
