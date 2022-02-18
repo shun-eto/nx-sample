@@ -1,7 +1,11 @@
 {
   "version": 2,
   "projects": {
+    "api": "apps/api",
+    "app-sample": "apps/app-sample",
     "nx-sample": "apps/nx-sample",
-    "nx-sample-e2e": "apps/nx-sample-e2e"
+    "nx-sample-e2e": "apps/nx-sample-e2e",
+    "ui": "libs/ui",
+    "ui-e2e": "apps/ui-e2e"
   }
 }

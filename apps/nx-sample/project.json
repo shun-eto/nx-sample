@@ -44,7 +44,8 @@
       "executor": "@nrwl/web:dev-server",
       "options": {
         "buildTarget": "nx-sample:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/nx-sample/proxy.conf.json"
       },
       "configurations": {
         "production": {

@@ -1,94 +1,33 @@
+## \[ 載せ替え手順 ]
 
+- 以下のコマンドを実行して NestJS アプリのディレクトリと基本の雛形を生成
 
-# NxSample
+```bash
+nx generate @nrwl/nest:application <nest-app-name> --frontendProject <front-app-name>
+```
 
-This project was generated using [Nx](https://nx.dev).
+※上記コマンドで生成することで、プロキシの設定ファイルに自動で追記してくれる。（あとで直接編集も可能なため、コマンドでの生成は別に必須ではない）
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+- 生成されたディレクトリ配下の src を convert
 
-🔎 **Smart, Fast and Extensible Build System**
+- 必要なパッケージをインストール
 
-## Adding capabilities to your workspace
+- エイリアスの解消 ( 設定方法の模索か、全てのファイル指定を相対パスでしていするか。shared 配下は勝手に通してくれそう )
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+- 以下のコマンドで実行
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+```bash
+nx serve <nest-app-name>
+```
 
-Below are our core plugins:
+\[ todo ]
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+- エイリアスを通す
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+- 必要なパッケージのインストール
 
-## Generate an application
+\[ 参考 URL ]
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+- [Nx を使ってモノレポで Next.js+NestJS+TypeScript+Open API generator なアプリを作る](https://qiita.com/UHNaKZ/items/ba95938ae1df97d4697a)
 
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@nx-sample/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+- [React Nx Tutorial - Step 8: Create Libs](https://nx.dev/react-tutorial/08-create-libs)
